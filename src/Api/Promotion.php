@@ -2,6 +2,7 @@
 
 namespace Ebay\Sell\Marketing\Api;
 
+use Ebay\Sell\Marketing\Model\ItemsPagedCollection;
 use Ebay\Sell\Marketing\Model\PromotionsPagedCollection;
 
 class Promotion extends AbstractAPI
@@ -53,9 +54,9 @@ class Promotion extends AbstractAPI
      *                             documentation at
      *                             https://developer.ebay.com/api-docs/sell/marketing/types/sme:ItemMarkdownStatusEnum
      *
-     * @return mixed
+     * @return ItemsPagedCollection
      */
-    public function getListingSet(string $promotion_id, array $queries = []): mixed
+    public function getListingSet(string $promotion_id, array $queries = []): ItemsPagedCollection
     {
         return $this->request(
         'getListingSet',

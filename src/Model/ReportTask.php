@@ -10,11 +10,10 @@ use OpenAPI\Runtime\AbstractModel;
 class ReportTask extends AbstractModel
 {
     /**
-     * A list of campaign IDs to be included in the report. A campaign ID is a unique
-     * eBay-assigned identifier of the campaign that's generated when the campaign is
-     * created. Call <b>getCampaigns</b> to return the current campaign IDs for a
-     * seller.  <br><br><p class="tablenote"><b>Note: </b> Currently, you can specify
-     * only one campaign ID.
+     * A list of IDs for the campaigns that are included in the report. A campaign ID
+     * is a unique eBay-assigned identifier of the campaign that's generated when the
+     * campaign is created.<br /><br />Call <b>getCampaigns</b> to return the current
+     * campaign IDs for a seller.
      *
      * @var string[]
      */
@@ -48,7 +47,7 @@ class ReportTask extends AbstractModel
     /**
      * If supplied in the request, this field returns a list of the seller's inventory
      * reference IDs included in the report.  <p>Each item is referenced by a pair of
-     * <inventoryRefernceID</b> and <b>inventoryReferenceType</b> values, where an
+     * <b>inventoryRefernceID</b> and <b>inventoryReferenceType</b> values, where an
      * inventory reference ID can be either a seller-defined <b>SKU</b> value or an
      * <b>inventoryItemGroupKey</b>. An <b>inventoryItemGroupKey</b> is seller-defined
      * ID for an inventory item group (a multiple-variation listing), and is created

@@ -18,7 +18,7 @@ class CreateReportTask extends AbstractModel
     /**
      * A list of campaign IDs to be included in the report task. Call
      * <b>getCampaigns</b> to get a list of the current campaign IDs for a
-     * seller.<br><br><b>Maximum: </b>10  <br><br><i>Required if </i> <b>reportType</b>
+     * seller.<br><br><b>Maximum: </b>25  <br><br><i>Required if </i> <b>reportType</b>
      * is set to <code>CAMPAIGN_PERFORMANCE_REPORT</code> or
      * <code>CAMPAIGN_PERFORMANCE_SUMMARY_REPORT</code>.
      *
