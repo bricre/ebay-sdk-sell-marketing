@@ -4,6 +4,7 @@ namespace Ebay\Sell\Marketing\Api;
 
 use Ebay\Sell\Marketing\Model\ItemsPagedCollection;
 use Ebay\Sell\Marketing\Model\PromotionsPagedCollection;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Promotion extends AbstractAPI
 {
@@ -54,9 +55,9 @@ class Promotion extends AbstractAPI
      *                             documentation at
      *                             https://developer.ebay.com/api-docs/sell/marketing/types/sme:ItemMarkdownStatusEnum
      *
-     * @return ItemsPagedCollection
+     * @return ItemsPagedCollection|UnexpectedResponse
      */
-    public function getListingSet(string $promotion_id, array $queries = []): ItemsPagedCollection
+    public function getListingSet(string $promotion_id, array $queries = [])
     {
         return $this->request(
         'getListingSet',
@@ -130,9 +131,9 @@ class Promotion extends AbstractAPI
      *                       implementation help, refer to eBay API documentation at
      *                       https://developer.ebay.com/api-docs/sell/marketing/types/csb:SortField
      *
-     * @return PromotionsPagedCollection
+     * @return PromotionsPagedCollection|UnexpectedResponse
      */
-    public function gets(array $queries = []): PromotionsPagedCollection
+    public function gets(array $queries = [])
     {
         return $this->request(
         'getPromotions',
@@ -164,9 +165,9 @@ class Promotion extends AbstractAPI
      *                             Marketplace ID is the ENUM value of eBay marketplace where the promotion is
      *                             hosted. <br><br><b>Example:</b> <code>1********5@EBAY_US</code>
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function pause(string $promotion_id): mixed
+    public function pause(string $promotion_id): UnexpectedResponse
     {
         return $this->request(
         'pausePromotion',
@@ -197,9 +198,9 @@ class Promotion extends AbstractAPI
      *                             Marketplace ID is the ENUM value of eBay marketplace where the promotion is
      *                             hosted. <br><br><b>Example:</b> <code>1********5@EBAY_US</code>
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function resume(string $promotion_id): mixed
+    public function resume(string $promotion_id): UnexpectedResponse
     {
         return $this->request(
         'resumePromotion',

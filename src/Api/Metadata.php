@@ -4,6 +4,7 @@ namespace Ebay\Sell\Marketing\Api;
 
 use Ebay\Sell\Marketing\Model\ReportMetadata;
 use Ebay\Sell\Marketing\Model\ReportMetadatas;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Metadata extends AbstractAPI
 {
@@ -13,9 +14,9 @@ class Metadata extends AbstractAPI
      * different types of Promoted Listings reports.  <p> The request for this method
      * does not use a payload or any URI parameters.</p>.
      *
-     * @return ReportMetadatas
+     * @return ReportMetadatas|UnexpectedResponse
      */
-    public function getReportMetadata(): ReportMetadatas
+    public function getReportMetadata()
     {
         return $this->request(
         'getReportMetadata',
@@ -42,9 +43,9 @@ class Metadata extends AbstractAPI
      *                            <br>&nbsp;&nbsp;&nbsp;<code>LISTING_PERFORMANCE_REPORT</code>
      *                            <br>&nbsp;&nbsp;&nbsp;<code>INVENTORY_PERFORMANCE_REPORT</code>
      *
-     * @return ReportMetadata
+     * @return ReportMetadata|UnexpectedResponse
      */
-    public function getReportMetadataForReportType(string $report_type): ReportMetadata
+    public function getReportMetadataForReportType(string $report_type)
     {
         return $this->request(
         'getReportMetadataForReportType',

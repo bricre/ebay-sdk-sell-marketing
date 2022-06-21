@@ -8,6 +8,7 @@ use Ebay\Sell\Marketing\Model\Campaigns;
 use Ebay\Sell\Marketing\Model\CloneCampaignRequest;
 use Ebay\Sell\Marketing\Model\CreateCampaignRequest;
 use Ebay\Sell\Marketing\Model\UpdateCampaignIdentificationRequest;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Campaign extends AbstractAPI
 {
@@ -28,9 +29,9 @@ class Campaign extends AbstractAPI
      * @param CloneCampaignRequest $Model       this type defines the fields for a clone
      *                                          campaign request
      *
-     * @return object
+     * @return object|UnexpectedResponse
      */
-    public function clone(string $campaign_id, CloneCampaignRequest $Model): object
+    public function clone(string $campaign_id, CloneCampaignRequest $Model)
     {
         return $this->request(
         'cloneCampaign',
@@ -101,9 +102,9 @@ class Campaign extends AbstractAPI
      *                       might not include all the campaigns with this start date if other filters
      *                       exclude them.
      *
-     * @return CampaignPagedCollection
+     * @return CampaignPagedCollection|UnexpectedResponse
      */
-    public function gets(array $queries = []): CampaignPagedCollection
+    public function gets(array $queries = [])
     {
         return $this->request(
         'getCampaigns',
@@ -165,9 +166,9 @@ class Campaign extends AbstractAPI
      * @param CreateCampaignRequest $Model this type defines the fields for the create
      *                                     campaign request
      *
-     * @return object
+     * @return object|UnexpectedResponse
      */
-    public function create(CreateCampaignRequest $Model): object
+    public function create(CreateCampaignRequest $Model)
     {
         return $this->request(
         'createCampaign',
@@ -194,9 +195,9 @@ class Campaign extends AbstractAPI
      *                            generated when a campaign is created. Get a seller's campaign IDs by calling <a
      *                            href="/api-docs/sell/marketing/resources/campaign/methods/getCampaigns">getCampaigns</a>.
      *
-     * @return CampaignModel
+     * @return CampaignModel|UnexpectedResponse
      */
-    public function get(string $campaign_id): CampaignModel
+    public function get(string $campaign_id)
     {
         return $this->request(
         'getCampaign',
@@ -221,9 +222,9 @@ class Campaign extends AbstractAPI
      *                            generated when a campaign is created. Get a seller's campaign IDs by calling <a
      *                            href="/api-docs/sell/marketing/resources/campaign/methods/getCampaigns">getCampaigns</a>.
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function delete(string $campaign_id): mixed
+    public function delete(string $campaign_id): UnexpectedResponse
     {
         return $this->request(
         'deleteCampaign',
@@ -248,9 +249,9 @@ class Campaign extends AbstractAPI
      *                            generated when a campaign is created. Get a seller's campaign IDs by calling <a
      *                            href="/api-docs/sell/marketing/resources/campaign/methods/getCampaigns">getCampaigns</a>.
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function end(string $campaign_id): mixed
+    public function end(string $campaign_id): UnexpectedResponse
     {
         return $this->request(
         'endCampaign',
@@ -285,9 +286,9 @@ class Campaign extends AbstractAPI
      *                       <b>inventory_reference_id</b> and <b>inventory_reference_type</b>.
      *                       'listing_id'	string	Identifier of the eBay listing associated with the ad.
      *
-     * @return Campaigns
+     * @return Campaigns|UnexpectedResponse
      */
-    public function findByAdReference(array $queries = []): Campaigns
+    public function findByAdReference(array $queries = [])
     {
         return $this->request(
         'findCampaignByAdReference',
@@ -314,9 +315,9 @@ class Campaign extends AbstractAPI
      * @param array $queries options:
      *                       'campaign_name'	string	Name of the campaign
      *
-     * @return CampaignModel
+     * @return CampaignModel|UnexpectedResponse
      */
-    public function getByName(array $queries = []): CampaignModel
+    public function getByName(array $queries = [])
     {
         return $this->request(
         'getCampaignByName',
@@ -344,9 +345,9 @@ class Campaign extends AbstractAPI
      *                            generated when a campaign is created. Get a seller's campaign IDs by calling <a
      *                            href="/api-docs/sell/marketing/resources/campaign/methods/getCampaigns">getCampaigns</a>.
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function pause(string $campaign_id): mixed
+    public function pause(string $campaign_id): UnexpectedResponse
     {
         return $this->request(
         'pauseCampaign',
@@ -371,9 +372,9 @@ class Campaign extends AbstractAPI
      *                            generated when a campaign is created. Get a seller's campaign IDs by calling <a
      *                            href="/api-docs/sell/marketing/resources/campaign/methods/getCampaigns">getCampaigns</a>.
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function resume(string $campaign_id): mixed
+    public function resume(string $campaign_id): UnexpectedResponse
     {
         return $this->request(
         'resumeCampaign',
@@ -405,9 +406,9 @@ class Campaign extends AbstractAPI
      * @param UpdateCampaignIdentificationRequest $Model       this type defines the fields
      *                                                         to updated the campaign name and start and end dates
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function updateIdentification(string $campaign_id, UpdateCampaignIdentificationRequest $Model): mixed
+    public function updateIdentification(string $campaign_id, UpdateCampaignIdentificationRequest $Model): UnexpectedResponse
     {
         return $this->request(
         'updateCampaignIdentification',

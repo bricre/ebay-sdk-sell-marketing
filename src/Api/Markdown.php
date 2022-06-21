@@ -3,6 +3,7 @@
 namespace Ebay\Sell\Marketing\Api;
 
 use Ebay\Sell\Marketing\Model\ItemPriceMarkdown;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Markdown extends AbstractAPI
 {
@@ -49,9 +50,9 @@ class Markdown extends AbstractAPI
      * @param ItemPriceMarkdown $Model this type defines the fields that describe an
      *                                 item price markdown promotion
      *
-     * @return object
+     * @return object|UnexpectedResponse
      */
-    public function createPromotion(ItemPriceMarkdown $Model): object
+    public function createPromotion(ItemPriceMarkdown $Model)
     {
         return $this->request(
         'createItemPriceMarkdownPromotion',
@@ -77,9 +78,9 @@ class Markdown extends AbstractAPI
      *                             Marketplace ID is the ENUM value of eBay marketplace where the promotion is
      *                             hosted. <br><br><b>Example:</b> <code>1********5@EBAY_US</code>
      *
-     * @return ItemPriceMarkdown
+     * @return ItemPriceMarkdown|UnexpectedResponse
      */
-    public function getPromotion(string $promotion_id): ItemPriceMarkdown
+    public function getPromotion(string $promotion_id)
     {
         return $this->request(
         'getItemPriceMarkdownPromotion',
@@ -120,9 +121,9 @@ class Markdown extends AbstractAPI
      * @param ItemPriceMarkdown $Model        this type defines the fields that describe an
      *                                        item price markdown promotion
      *
-     * @return object
+     * @return object|UnexpectedResponse
      */
-    public function updatePromotion(string $promotion_id, ItemPriceMarkdown $Model): object
+    public function updatePromotion(string $promotion_id, ItemPriceMarkdown $Model)
     {
         return $this->request(
         'updateItemPriceMarkdownPromotion',
@@ -152,9 +153,9 @@ class Markdown extends AbstractAPI
      *                             Marketplace ID is the ENUM value of eBay marketplace where the promotion is
      *                             hosted. <br><br><b>Example:</b> <code>1********5@EBAY_US</code>
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function deletePromotion(string $promotion_id): mixed
+    public function deletePromotion(string $promotion_id): UnexpectedResponse
     {
         return $this->request(
         'deleteItemPriceMarkdownPromotion',

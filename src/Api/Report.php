@@ -3,6 +3,7 @@
 namespace Ebay\Sell\Marketing\Api;
 
 use Ebay\Sell\Marketing\Model\SummaryReportResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Report extends AbstractAPI
 {
@@ -25,9 +26,9 @@ class Report extends AbstractAPI
      *                       <li><code>EBAY_IT</code> = Italy</li> <li><code>EBAY_US</code> = United
      *                       States</li></ul>
      *
-     * @return SummaryReportResponse
+     * @return SummaryReportResponse|UnexpectedResponse
      */
-    public function get(array $queries = []): SummaryReportResponse
+    public function get(array $queries = [])
     {
         return $this->request(
         'getPromotionSummaryReport',

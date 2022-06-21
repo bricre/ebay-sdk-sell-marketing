@@ -5,6 +5,7 @@ namespace Ebay\Sell\Marketing\Api;
 use Ebay\Sell\Marketing\Model\CreateReportTask;
 use Ebay\Sell\Marketing\Model\ReportTask;
 use Ebay\Sell\Marketing\Model\ReportTaskPagedCollection;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Task extends AbstractAPI
 {
@@ -37,9 +38,9 @@ class Task extends AbstractAPI
      *                       <br>&nbsp;&nbsp;&nbsp;<code>SUCCESS</code>
      *                       <br>&nbsp;&nbsp;&nbsp;<code>FAILED</code>
      *
-     * @return ReportTaskPagedCollection
+     * @return ReportTaskPagedCollection|UnexpectedResponse
      */
-    public function getReportTasks(array $queries = []): ReportTaskPagedCollection
+    public function getReportTasks(array $queries = [])
     {
         return $this->request(
         'getReportTasks',
@@ -87,9 +88,9 @@ class Task extends AbstractAPI
      * @param CreateReportTask $Model the container for the fields that define the
      *                                report task
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function createReportTask(CreateReportTask $Model): mixed
+    public function createReportTask(CreateReportTask $Model): UnexpectedResponse
     {
         return $this->request(
         'createReportTask',
@@ -116,9 +117,9 @@ class Task extends AbstractAPI
      *                               that's generated when the report task is created by a call to <a
      *                               href="/api-docs/sell/marketing/resources/ad_report_task/methods/createReportTask">createReportTask</a>
      *
-     * @return ReportTask
+     * @return ReportTask|UnexpectedResponse
      */
-    public function getReportTask(string $report_task_id): ReportTask
+    public function getReportTask(string $report_task_id)
     {
         return $this->request(
         'getReportTask',
@@ -142,9 +143,9 @@ class Task extends AbstractAPI
      *                               that's generated when the report task is created by a call to <a
      *                               href="/api-docs/sell/marketing/resources/ad_report_task/methods/createReportTask">createReportTask</a>
      *
-     * @return mixed
+     * @return UnexpectedResponse
      */
-    public function deleteReportTask(string $report_task_id): mixed
+    public function deleteReportTask(string $report_task_id): UnexpectedResponse
     {
         return $this->request(
         'deleteReportTask',
